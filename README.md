@@ -7,6 +7,7 @@ The disease is spread between inhabitants of this city.
 To test this model, two environments are available:
 - a randomly generated city environment (with the `model-testing.jl` file);
 - and a real-world city environment (with the `main.jl` file).
+
 The randomly generated one was mainly used to test the model's correctness.
 
 This project wasn't _really_ meant to be reused, but if you are curious, here are some notes about the files in this project.
@@ -39,7 +40,7 @@ The main program will start by generating the Floyd-Warshall matrices (and cachi
 Then, it'll start the simulation, save the correct indicators and export this data to a CSV file.
 Parallelization is used to save time (most of the computation is done in parallel, and mutex are used to avoid issues with this parallelization).
 
-**WARNING.** Simulations take a long time to run. For me, running all my simulations took about a week and a half on a pretty powerful computer (running 24/7). Running the `main.jl` file took between a day to a day and a halp on the computer I used.
+**WARNING.** Simulations take a long time to run. For me, running all my simulations took about a week and a half on a pretty powerful computer (running 24/7). Running the `main.jl` file took between a day to a day and a half on the computer I used. This is mostly due to the _size_ of the city: for example, getting the Floyd-Warshall matrices has a time complexity $\mathrm{O}(n^3)$ and $n$ is around $20,000$!
 
 Here are some examples of simulations:
 
